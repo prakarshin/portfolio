@@ -82,12 +82,7 @@ export const PORTFOLIO_DATA: PortfolioData = {
       number: 'PRODUCT 03', title: 'Orifone',
       description: 'Supported delivery through requirements, coordination, analysis, AI-assisted documentation, and structured communication aimed at reducing repetitive changes and client escalations.',
       tags: ['Requirements', 'AI Workflows', 'Stakeholders', 'Delivery'], icon: 'fa-solid fa-mobile-screen-button'
-    },
-    {
-      number: 'PRODUCT 04', title: 'Test',
-      description: 'Collaborated with Senior Management on product discovery, feature research, solution discussions, business-focused recommendations, user flows, validation, testing, and implementation.',
-      tags: ['Discovery', 'Feature Research', 'User Flows', 'Validation'], icon: 'fa-solid fa-layer-group'
-    },
+    }
   ],
   journeyIntro: {
     kicker: 'Career journey',
