@@ -1,207 +1,81 @@
-<div id="scrollProgress" [style.width.%]="scrollProgress"></div>
-
-<nav class="navbar navbar-expand-lg site-nav" [class.scrolled]="navScrolled" id="siteNav">
-  <div class="container">
-    <a class="navbar-brand" href="#home" (click)="goToSection('home'); $event.preventDefault()" [attr.aria-label]="data.person.name + ' home'">
-      <span class="brand-mark">{{ data.person.initials }}</span>
-      <span class="brand-wordmark">{{ data.person.name }}</span>
-    </a>
-
-    <button class="navbar-toggler border-0 shadow-none" type="button" (click)="toggleMobileMenu()" [attr.aria-expanded]="mobileMenuOpen" aria-controls="mainNav" aria-label="Toggle navigation">
-      <i class="fa-solid fa-bars-staggered"></i>
-    </button>
-
-    <div class="collapse navbar-collapse" [class.show]="mobileMenuOpen" id="mainNav">
-      <ul class="navbar-nav ms-auto align-items-lg-center">
-        @for (item of data.navigation; track item.target) {
-          <li class="nav-item">
-            <a class="nav-link" [class.active]="activeSection() === item.target" [href]="'#' + item.target" (click)="goToSection(item.target); $event.preventDefault()">{{ item.label }}</a>
-          </li>
-        }
-        <li class="nav-item">
-          <a class="btn-nav" href="#contact" (click)="goToSection('contact'); $event.preventDefault()"><i class="fa-regular fa-paper-plane"></i> Let’s Talk</a>
-        </li>
-      </ul>
+<div class="progress" [style.width.%]="scrollProgress"></div>
+<nav class="nav" [class.scrolled]="navScrolled">
+  <div class="container nav-inner">
+    <a class="brand" href="#home" (click)="goToSection('home'); $event.preventDefault()"><span>{{ data.person.initials }}</span><b>{{ data.person.name }}</b></a>
+    <button class="menu-button" type="button" (click)="toggleMobileMenu()" [attr.aria-expanded]="mobileMenuOpen" aria-label="Toggle navigation"><i class="fa-solid fa-bars"></i></button>
+    <div class="nav-links" [class.open]="mobileMenuOpen">
+      @for (item of data.navigation; track item.target) { <a [class.active]="activeSection() === item.target" [href]="'#' + item.target" (click)="goToSection(item.target); $event.preventDefault()">{{ item.label }}</a> }
     </div>
   </div>
 </nav>
 
 <main>
   <section class="hero" id="home">
-    <div class="container">
-      <div class="row align-items-center g-5">
-        <div class="col-lg-7 reveal">
-          <div class="eyebrow"><span class="eyebrow-dot"></span>{{ data.hero.eyebrow }}</div>
-          <h1>{{ data.hero.titlePrefix }} <span class="gradient-text">{{ data.hero.titleHighlight }}</span></h1>
-          <p class="hero-copy">{{ data.hero.description }}</p>
-
-          <div class="hero-actions">
-            <a class="btn-primary-custom" href="#work" (click)="goToSection('work'); $event.preventDefault()">{{ data.hero.primaryAction }} <i class="fa-solid fa-arrow-right"></i></a>
-            <a class="btn-light-custom" [href]="'mailto:' + data.person.email"><i class="fa-regular fa-envelope"></i> {{ data.hero.secondaryAction }}</a>
-          </div>
-
-          <div class="hero-socials" aria-label="Contact shortcuts">
-            <a class="social-icon" [href]="data.person.linkedin" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a class="social-icon" [href]="'tel:' + data.person.phone.replaceAll(' ', '')" aria-label="Phone"><i class="fa-solid fa-phone"></i></a>
-            <a class="social-icon" [href]="'mailto:' + data.person.email" aria-label="Email"><i class="fa-regular fa-envelope"></i></a>
-          </div>
-        </div>
-
-        <div class="col-lg-5 reveal reveal-delay-1">
-          <div class="visual-wrap">
-            <div class="visual-panel">
-              <div class="panel-head">
-                <div><div class="panel-label">Delivery framework</div><strong>From ambiguity to release</strong></div>
-                <span class="online-pill"><i class="fa-solid fa-circle-check me-1"></i> Outcome-led</span>
-              </div>
-              <div class="panel-body">
-                <div class="flow-title">Product delivery flow</div>
-                @for (step of data.deliveryFlow; track step.title) {
-                  <div class="flow-step">
-                    <span class="flow-icon"><i [class]="step.icon"></i></span>
-                    <div><strong>{{ step.title }}</strong><small>{{ step.subtitle }}</small></div>
-                    <span class="step-ok">{{ step.status }}</span>
-                  </div>
-                }
-              </div>
-            </div>
-
-            @for (card of data.floatingCards; track card.title; let i = $index) {
-              <div class="floating-card" [class.fc-one]="i === 0" [class.fc-two]="i === 1">
-                <i [class]="card.icon"></i><strong>{{ card.title }}</strong><span>{{ card.subtitle }}</span>
-              </div>
-            }
-          </div>
+    <div class="container hero-grid">
+      <div class="reveal">
+        <div class="eyebrow"><span></span>{{ data.person.role }}</div>
+        <h1>{{ data.person.name }}</h1>
+        <p class="hero-subtitle">{{ data.hero.subtitle }}</p>
+        <p class="hero-copy">{{ data.hero.description }}</p>
+        <div class="actions">
+          <a class="button primary" href="#projects" (click)="goToSection('projects'); $event.preventDefault()">View Projects <i class="fa-solid fa-arrow-down"></i></a>
+          <a class="button secondary" [href]="data.person.resume" download>Download Resume <i class="fa-solid fa-download"></i></a>
+          <a class="text-link" [href]="data.person.linkedin" target="_blank" rel="noreferrer">Connect on LinkedIn <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
         </div>
       </div>
+      <aside class="hero-card reveal reveal-delay-1">
+        <div class="hero-card-content">
+          <span class="card-label">Professional focus</span>
+          <h2>Turning business needs into clear, deliverable software solutions.</h2>
+          <div class="focus-list">
+            <div><i class="fa-solid fa-check"></i> Requirements & solution definition</div>
+            <div><i class="fa-solid fa-check"></i> Product discovery & validation</div>
+            <div><i class="fa-solid fa-check"></i> Client, stakeholder & delivery coordination</div>
+            <div><i class="fa-solid fa-check"></i> Practical technical collaboration</div>
+          </div>
+          <div class="domain-row">@for (domain of data.domains; track domain) { <span>{{ domain }}</span> }</div>
+        </div>
+      </aside>
+    </div>
+    <div class="container metrics reveal">@for (metric of data.metrics; track metric.label) { <div><strong>{{ metric.value }}</strong><span>{{ metric.label }}</span></div> }</div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="container about-grid">
+      <div class="section-heading reveal"><span class="kicker">About</span><h2>Business analysis grounded in product and delivery.</h2><div class="career-note"><i class="fa-solid fa-arrow-trend-up"></i><div><strong>Career progression</strong><span>Business Analyst Trainee → Associate Business Analyst within 6 months</span></div></div></div>
+      <div class="about-copy reveal reveal-delay-1">@for (paragraph of data.about; track paragraph) { <p>{{ paragraph }}</p> }<div class="about-education"><i class="fa-solid fa-graduation-cap"></i><div><small>Education</small><strong>{{ data.education.degree }}</strong><span>{{ data.education.institution }} · {{ data.education.duration }}</span></div><b>{{ data.education.cgpa }}</b></div></div>
     </div>
   </section>
 
-  <div class="metrics-shell">
-    <div class="container reveal">
-      <div class="metrics">
-        @for (metric of data.metrics; track metric.label) {
-          <div class="metric"><strong>{{ metric.value }}</strong><span>{{ metric.label }}</span></div>
-        }
-      </div>
-    </div>
-  </div>
-
-  <section class="section" id="expertise">
+  <section class="section soft" id="experience">
     <div class="container">
-      <div class="row align-items-end g-4 mb-5">
-        <div class="col-lg-7 reveal"><div class="section-kicker">{{ data.expertiseIntro.kicker }}</div><h2 class="section-title">{{ data.expertiseIntro.title }}</h2></div>
-        <div class="col-lg-5 reveal reveal-delay-1"><p class="section-copy mb-0">{{ data.expertiseIntro.copy }}</p></div>
-      </div>
-
-      <div class="row g-4">
-        @for (item of data.expertise; track item.title; let i = $index) {
-          <div class="col-md-6 col-lg-3 reveal" [style.transition-delay.ms]="i * 70">
-            <div class="cap-card"><div class="cap-icon"><i [class]="item.icon"></i></div><h3>{{ item.title }}</h3><p>{{ item.description }}</p></div>
-          </div>
-        }
-      </div>
-
-      <div class="mt-5 pt-3 reveal">
-        <div class="section-kicker mb-3">Industry exposure</div>
-        <div class="skills-wrap">
-          @for (skill of data.industries; track skill.label) { <span class="skill"><i [class]="skill.icon"></i> {{ skill.label }}</span> }
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section-soft" id="work">
-    <div class="container">
-      <div class="row align-items-end g-4 mb-5">
-        <div class="col-lg-8 reveal"><div class="section-kicker">{{ data.workIntro.kicker }}</div><h2 class="section-title">{{ data.workIntro.title }}</h2></div>
-        <div class="col-lg-4 reveal reveal-delay-1"><p class="section-copy mb-0">{{ data.workIntro.copy }}</p></div>
-      </div>
-
-      <div class="row g-4">
-        @for (product of data.products; track product.title; let i = $index) {
-          <div class="col-lg-4 reveal" [style.transition-delay.ms]="i * 90">
-            <article class="work-card">
-              <span class="work-number">{{ product.number }}</span><h3>{{ product.title }}</h3><p>{{ product.description }}</p>
-              <div class="work-tags">@for (tag of product.tags; track tag) { <span class="work-tag">{{ tag }}</span> }</div>
-              <i [class]="product.icon + ' work-icon'"></i>
-            </article>
-          </div>
+      <div class="section-heading reveal"><span class="kicker">Experience</span><h2>Progress built through ownership and coordination.</h2></div>
+      <div class="timeline">
+        @for (job of data.experience; track job.role) {
+          <article class="experience-card reveal"><div class="job-head"><div><h3>{{ job.role }}</h3><p>{{ job.company }}</p></div><span>{{ job.duration }}</span></div><ul>@for (item of job.items; track item) { <li>{{ item }}</li> }</ul></article>
         }
       </div>
     </div>
   </section>
 
-  <section class="section" id="journey">
-    <div class="container">
-      <div class="journey-layout">
-        <div class="journey-sticky reveal">
-          <div class="section-kicker">{{ data.journeyIntro.kicker }}</div><h2 class="section-title">{{ data.journeyIntro.title }}</h2><p class="section-copy">{{ data.journeyIntro.copy }}</p>
-          <div class="skills-wrap mt-4">@for (skill of data.technicalSkills; track skill.label) { <span class="skill"><i [class]="skill.icon"></i> {{ skill.label }}</span> }</div>
-        </div>
-
-        <div class="timeline reveal reveal-delay-1">
-          @for (job of data.experience; track job.role) {
-            <div class="timeline-item">
-              <span class="timeline-dot"></span>
-              <div class="timeline-meta"><span class="timeline-role">{{ job.role }}</span><span class="timeline-time">{{ job.duration }}</span></div>
-              <p>{{ job.summary }}</p>
-              <div class="impact-list">
-                @for (impact of job.impacts; track impact) { <div class="impact-item"><i class="fa-solid fa-circle-check"></i><span>{{ impact }}</span></div> }
-              </div>
-            </div>
-          }
-        </div>
-      </div>
+  <section class="section" id="services">
+    <div class="container"><div class="section-heading reveal"><span class="kicker">What I Do</span><h2>Four capabilities across the software product lifecycle.</h2></div>
+      <div class="service-grid">@for (service of data.services; track service.title) { <article class="service-card reveal"><i [class]="service.icon"></i><h3>{{ service.title }}</h3><ul>@for (item of service.items; track item) { <li>{{ item }}</li> }</ul></article> }</div>
+      <div class="competencies reveal"><div class="competency-heading"><span class="kicker">Skills & Tools</span><h3>Core working toolkit</h3></div><div class="competency-groups">@for (group of data.skills; track group.title) { <div><strong>{{ group.title }}</strong><p>{{ group.items.join(' · ') }}</p></div> }</div></div>
     </div>
   </section>
 
-  <section class="section section-dark" id="approach">
-    <div class="container">
-      <div class="row g-4 align-items-end">
-        <div class="col-lg-8 reveal"><div class="section-kicker">{{ data.approachIntro.kicker }}</div><h2 class="section-title">{{ data.approachIntro.title }}</h2></div>
-        <div class="col-lg-4 reveal reveal-delay-1"><p class="section-copy mb-0">{{ data.approachIntro.copy }}</p></div>
-      </div>
-
-      <div class="process-grid">
-        @for (step of data.process; track step.index; let i = $index) {
-          <div class="process-card reveal" [style.transition-delay.ms]="i * 80">
-            <span class="process-index">{{ step.index }} / {{ step.label }}</span><i [class]="step.icon"></i><h3>{{ step.title }}</h3><p>{{ step.description }}</p>
-          </div>
-        }
-      </div>
+  <section class="section dark" id="projects">
+    <div class="container"><div class="section-heading reveal"><span class="kicker">Selected Projects</span><h2>Product work across CRM, FinTech, and AI.</h2></div>
+      <div class="project-grid">@for (project of data.projects; track project.title; let i = $index) { <article class="project-card reveal"><div class="project-top"><span>0{{ i + 1 }}</span><small>{{ project.type }}</small></div><h3>{{ project.title }} @if (project.url) { <a [href]="project.url" target="_blank" rel="noreferrer" [attr.aria-label]="'Visit ' + project.title"><i class="fa-solid fa-arrow-up-right-from-square"></i></a> }</h3><b>{{ project.role }}</b><p>{{ project.description }}</p><div class="tags">@for (tag of project.focus; track tag) { <span>{{ tag }}</span> }</div></article> }</div>
     </div>
   </section>
 
-  <section class="section" id="education">
-    <div class="container">
-      <div class="row g-5 align-items-center">
-        <div class="col-lg-5 reveal"><div class="section-kicker">{{ data.educationIntro.kicker }}</div><h2 class="section-title">{{ data.educationIntro.title }}</h2><p class="section-copy">{{ data.educationIntro.copy }}</p></div>
-        <div class="col-lg-7 reveal reveal-delay-1">
-          <div class="education-card">
-            <div class="edu-icon"><i [class]="data.education.icon"></i></div>
-            <div class="flex-grow-1"><h3>{{ data.education.degree }}</h3><p>{{ data.education.description }}</p></div>
-            <div class="edu-date">{{ data.education.date }}</div>
-          </div>
-        </div>
-      </div>
-    </div>
+  <section class="section ai-section" id="ai-tools">
+    <div class="container ai-grid"><div class="section-heading reveal"><span class="kicker">AI & Tools</span><h2>AI-Assisted Business Analysis & Product Work</h2><p>{{ data.ai.description }}</p><div class="impact"><i class="fa-solid fa-wand-magic-sparkles"></i><p>{{ data.ai.impact }}</p></div></div><div class="ai-details reveal reveal-delay-1"><div><h3>Applications</h3><div class="chip-list">@for (item of data.ai.applications; track item) { <span>{{ item }}</span> }</div></div><div><h3>AI tools</h3><div class="chip-list tools">@for (item of data.ai.tools; track item) { <span>{{ item }}</span> }</div></div></div></div>
   </section>
 
-  <section class="pb-5" id="contact">
-    <div class="container reveal">
-      <div class="contact-shell">
-        <div class="section-kicker text-white-50">{{ data.contact.kicker }}</div><h2>{{ data.contact.title }}</h2><p class="mt-3 mb-0">{{ data.contact.copy }}</p>
-        <div class="contact-links">
-          @for (link of data.contact.links; track link.label) { <a class="contact-link" [href]="link.href"><i [class]="link.icon"></i> {{ link.label }}</a> }
-        </div>
-      </div>
-    </div>
-  </section>
+  <section class="contact-section" id="contact"><div class="container"><div class="contact-card reveal"><span class="kicker">Let's Connect</span><h2>Let’s discuss better software products.</h2><p>Interested in Business Analysis, Product Discovery, SaaS, AI-powered products, or technology-driven business solutions? Let's connect.</p><div class="actions"><a class="button light" [href]="'mailto:' + data.person.email"><i class="fa-regular fa-envelope"></i> Email</a><a class="button ghost" [href]="data.person.linkedin" target="_blank" rel="noreferrer"><i class="fa-brands fa-linkedin-in"></i> LinkedIn</a><a class="button ghost" [href]="data.person.resume" download><i class="fa-solid fa-download"></i> Download Resume</a></div></div></div></section>
 </main>
-
-<footer>
-  <div class="container"><div class="footer-inner"><div><span class="footer-brand">{{ data.person.name }}</span> · {{ data.person.role }}</div><div>{{ data.footer.right }}</div></div></div>
-</footer>
-
-<button id="backToTop" [class.show]="showBackToTop" (click)="scrollToTop()" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+<footer><div class="container"><b>{{ data.person.name }}</b><span>{{ data.person.role }}</span><span>Lucknow, India</span></div></footer>
+<button class="back-top" [class.show]="showBackToTop" (click)="scrollToTop()" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>

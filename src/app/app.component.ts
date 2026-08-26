@@ -1,5 +1,9 @@
 import { AfterViewInit, Component, HostListener, OnDestroy, signal } from '@angular/core';
 import { PORTFOLIO_DATA } from './data/portfolio.data';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 @Component({
   selector: 'app-root',
@@ -16,17 +20,17 @@ export class AppComponent implements AfterViewInit, OnDestroy {
   scrollProgress = 0;
 
   private sectionObserver?: IntersectionObserver;
-  private revealObserver?: IntersectionObserver;
+  private gsapContext?: gsap.Context;
 
   ngAfterViewInit(): void {
     this.setupSectionObserver();
-    this.setupRevealObserver();
+    this.setupAnimations();
     this.handleScroll();
   }
 
   ngOnDestroy(): void {
     this.sectionObserver?.disconnect();
-    this.revealObserver?.disconnect();
+    this.gsapContext?.revert();
   }
 
   @HostListener('window:scroll')
@@ -64,18 +68,37 @@ export class AppComponent implements AfterViewInit, OnDestroy {
     sections.forEach((section) => this.sectionObserver?.observe(section));
   }
 
-  private setupRevealObserver(): void {
-    const revealItems = Array.from(document.querySelectorAll<HTMLElement>('.reveal'));
-    this.revealObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add('is-visible');
-          this.revealObserver?.unobserve(entry.target);
+  private setupAnimations(): void {
+    this.gsapContext = gsap.context(() => {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        gsap.set('.reveal', { clearProps: 'all' });
+        return;
+      }
+
+      gsap.set('.reveal', { opacity: 1 });
+      const intro = gsap.timeline({ defaults: { ease: 'power3.out' } });
+      intro.from('.nav-inner', { y: -30, opacity: 0, duration: .7 })
+        .from('.hero-grid > div:first-child > *', { y: 42, opacity: 0, duration: .7, stagger: .1 }, '-=.35')
+        .from('.hero-card', { x: 70, opacity: 0, duration: .9 }, '-=.65')
+        .from('.metrics > div', { y: 35, opacity: 0, duration: .55, stagger: .12 }, '-=.35');
+
+      gsap.utils.toArray<HTMLElement>('main .section, .contact-section').forEach((section) => {
+        const heading = section.querySelector('.section-heading');
+        const cards = section.querySelectorAll('.experience-card, .service-card, .project-card, .ai-details > div, .competency-groups > div');
+        const content = section.querySelectorAll('.about-copy, .career-note, .impact, .competencies, .contact-card');
+        const timeline = gsap.timeline({
+          scrollTrigger: { trigger: section, start: 'top 78%', toggleActions: 'play none none none' }
         });
-      },
-      { rootMargin: '0px 0px -70px', threshold: 0.08 }
-    );
-    revealItems.forEach((item) => this.revealObserver?.observe(item));
+        if (heading) timeline.from(heading, { y: 55, opacity: 0, duration: .7, ease: 'power3.out' });
+        if (content.length) timeline.from(content, { y: 45, opacity: 0, duration: .65, stagger: .12, ease: 'power2.out' }, '-=.4');
+        if (cards.length) timeline.from(cards, { y: 55, opacity: 0, scale: .97, duration: .65, stagger: .1, ease: 'power2.out' }, '-=.35');
+      });
+
+      gsap.to('.hero-card', {
+        y: -24, ease: 'none',
+        scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 }
+      });
+
+    });
   }
 }
