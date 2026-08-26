@@ -1,7 +1,7 @@
 import { PortfolioData } from '../models/portfolio.model';
 
 export const PORTFOLIO_DATA: PortfolioData = {
-  person: { name: 'Prakarsh Pandey', initials: 'PP', role: 'Associate Business Analyst', email: 'prakarshpandeyin@gmail.com', linkedin: 'https://www.linkedin.com/in/prakarshpandeyin', resume: '/resume/Prakarsh_Pandey_Resume.pdf' },
+  person: { name: 'Prakarsh Pandey', initials: 'PP', role: 'Associate Business Analyst', email: 'prakarshpandeyin@gmail.com', linkedin: 'https://www.linkedin.com/in/prakarshpandeyin', resume: 'resume/Prakarsh_Pandey_Resume.pdf' },
   navigation: [
     { label: 'Home', target: 'home' }, { label: 'About', target: 'about' }, { label: 'Experience', target: 'experience' },
     { label: 'Expertise', target: 'services' }, { label: 'Projects', target: 'projects' }, { label: 'AI & Tools', target: 'ai-tools' },

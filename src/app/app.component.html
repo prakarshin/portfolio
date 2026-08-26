@@ -19,7 +19,7 @@
         <p class="hero-copy">{{ data.hero.description }}</p>
         <div class="actions">
           <a class="button primary" href="#projects" (click)="goToSection('projects'); $event.preventDefault()">View Projects <i class="fa-solid fa-arrow-down"></i></a>
-          <a class="button secondary" [href]="data.person.resume" download>Download Resume <i class="fa-solid fa-download"></i></a>
+          <a class="button secondary" [href]="data.person.resume" download="Prakarsh_Pandey_Resume.pdf">Download Resume <i class="fa-solid fa-download"></i></a>
           <a class="text-link" [href]="data.person.linkedin" target="_blank" rel="noreferrer">Connect on LinkedIn <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
         </div>
       </div>
