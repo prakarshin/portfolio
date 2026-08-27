@@ -61,12 +61,14 @@
   <section class="section" id="services">
     <div class="container"><div class="section-heading reveal"><span class="kicker">Expertise</span><h2>Four capabilities across the software product lifecycle.</h2></div>
       <div class="service-grid">@for (service of data.services; track service.title) { <article class="service-card reveal"><i [class]="service.icon"></i><h3>{{ service.title }}</h3><ul>@for (item of service.items; track item) { <li>{{ item }}</li> }</ul></article> }</div>
+      <div class="tools-heading reveal"><span class="kicker">Tools</span><h3>Tools I use across project management and product discovery.</h3></div>
+      <div class="service-grid tools-grid">@for (tool of data.serviceTools; track tool.title) { <article class="service-card reveal"><i [class]="tool.icon"></i><h3>{{ tool.title }}</h3><ul>@for (item of tool.items; track item) { <li>{{ item }}</li> }</ul></article> }</div>
     </div>
   </section>
 
   <section class="section dark" id="projects">
-    <div class="container"><div class="section-heading reveal"><span class="kicker">Work Samples</span><h2>Product work across CRM, FinTech, and AI.</h2></div>
-      <div class="project-grid">@for (project of data.projects; track project.title; let i = $index) { <article class="project-card reveal"><div class="project-top"><span>0{{ i + 1 }}</span><small>{{ project.type }}</small></div><h3>{{ project.title }} @if (project.url) { <a [href]="project.url" target="_blank" rel="noreferrer" [attr.aria-label]="'Visit ' + project.title"><i class="fa-solid fa-arrow-up-right-from-square"></i></a> }</h3><b>{{ project.role }}</b>@if (project.association) { <span class="project-association">{{ project.association }}</span> }<p>{{ project.description }}</p>@if (project.url) { <a class="project-link" [href]="project.url" target="_blank" rel="noreferrer">View Project <i class="fa-solid fa-arrow-up-right-from-square"></i></a> }<div class="tags">@for (tag of project.focus; track tag) { <span>{{ tag }}</span> }</div></article> }</div>
+    <div class="container"><div class="section-heading reveal"><span class="kicker">Projects</span><h2>Product work across CRM, FinTech, and AI.</h2></div>
+      <div class="project-grid">@for (project of data.projects; track project.title) { <article class="project-card reveal"><div class="project-top"><small>{{ project.type }}</small></div><h3>{{ project.title }} @if (project.url) { <a [href]="project.url" target="_blank" rel="noreferrer" [attr.aria-label]="'Visit ' + project.title"><i class="fa-solid fa-arrow-up-right-from-square"></i></a> }</h3><b>{{ project.role }}</b>@if (project.association) { <span class="project-association">{{ project.association }}</span> }<p>{{ project.description }}</p>@if (project.url) { <a class="project-link" [href]="project.url" target="_blank" rel="noreferrer">View Project <i class="fa-solid fa-arrow-up-right-from-square"></i></a> }<div class="tags">@for (tag of project.focus; track tag) { <span>{{ tag }}</span> }</div></article> }</div>
     </div>
   </section>
 
