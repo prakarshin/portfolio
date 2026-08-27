@@ -3,8 +3,9 @@ import { PortfolioData } from '../models/portfolio.model';
 export const PORTFOLIO_DATA: PortfolioData = {
   person: { name: 'Prakarsh Pandey', initials: 'P•P', role: 'Business Analyst / Project Management', email: 'prakarshpandeyin@gmail.com', linkedin: 'https://www.linkedin.com/in/prakarshpandeyin', resume: 'resume/Prakarsh_Pandey_Resume.pdf' },
   navigation: [
-    { label: 'About', target: 'about' }, { label: 'Expertise', target: 'services' },
-    { label: 'Projects', target: 'projects' }, { label: 'Contact', target: 'contact' }
+    { label: 'About', target: 'about' }, { label: 'Experience', target: 'experience' },
+    { label: 'Expertise', target: 'services' }, { label: 'Projects', target: 'projects' },
+    { label: 'AI & Tools', target: 'ai-tools' }, { label: 'Contact', target: 'contact' }
   ],
   hero: {
     positioning: 'Business Analysis · Product Discovery · Project Coordination · Client Management · Software Product Delivery',
@@ -51,7 +52,7 @@ export const PORTFOLIO_DATA: PortfolioData = {
   ai: {
     description: 'I use Generative AI to accelerate research, documentation, analysis, prototyping, presentations, and testing while keeping business context, requirements, validation, and decision-making under human review.',
     tools: ['ChatGPT', 'Claude', 'Kimi', 'Lovable', 'Stitch', 'Gamma', 'Julius'], applications: ['Research', 'Documentation', 'Prototyping', 'Analysis', 'Presentations', 'Testing'],
-    impact: 'Approximately 40% reduction in related effort across AI-assisted research, documentation, prototyping, analysis, presentations, and testing activities.'
+    impact: 'Meaningfully reduces time spent on research, documentation, prototyping, analysis, presentations, and testing.'
   },
   education: { degree: 'B.Tech — Computer Science & Engineering', institution: 'Gurukula Kangri Vishwavidyalaya', duration: '2019–2023' }
 };
