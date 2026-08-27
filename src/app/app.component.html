@@ -59,10 +59,8 @@
   </section>
 
   <section class="section" id="services">
-    <div class="container"><div class="section-heading reveal"><span class="kicker">Expertise</span><h2>Four capabilities across the software product lifecycle.</h2></div>
+    <div class="container"><div class="section-heading reveal"><span class="kicker">Expertise</span><h2>Six areas across the software product lifecycle.</h2></div>
       <div class="service-grid">@for (service of data.services; track service.title) { <article class="service-card reveal"><i [class]="service.icon"></i><h3>{{ service.title }}</h3><ul>@for (item of service.items; track item) { <li>{{ item }}</li> }</ul></article> }</div>
-      <div class="tools-heading reveal"><span class="kicker">Tools</span><h3>Tools I use across project management and product discovery.</h3></div>
-      <div class="service-grid tools-grid">@for (tool of data.serviceTools; track tool.title) { <article class="service-card reveal"><i [class]="tool.icon"></i><h3>{{ tool.title }}</h3><ul>@for (item of tool.items; track item) { <li>{{ item }}</li> }</ul></article> }</div>
     </div>
   </section>
 

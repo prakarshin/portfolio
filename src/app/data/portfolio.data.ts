@@ -25,9 +25,7 @@ export const PORTFOLIO_DATA: PortfolioData = {
     { title: 'Business Analysis', icon: 'fa-solid fa-magnifying-glass-chart', items: ['Requirement Elicitation', 'Requirement Analysis', 'Functional & Non-Functional Requirements', 'Gap Analysis', 'Process Mapping', 'Requirement Prioritization', 'BRD / FRD / SRS', 'PRD', 'User Stories', 'Use Cases', 'Acceptance Criteria', 'UAT'] },
     { title: 'Product Discovery', icon: 'fa-regular fa-compass', items: ['Product Research', 'Feature Analysis', 'Solution Definition', 'User Flows', 'Wireframing', 'Prototyping', 'Feature Prioritization'] },
     { title: 'Project & Stakeholder Management', icon: 'fa-solid fa-people-group', items: ['Client Communication', 'Stakeholder Management', 'Project Coordination', 'Sprint Coordination', 'Task Coordination', 'Delivery Coordination'] },
-    { title: 'Technical Collaboration', icon: 'fa-solid fa-code-branch', items: ['API Analysis', 'API Documentation', 'Third-party Integrations', 'Database Understanding', 'Authentication', 'Deployment Workflows', 'Technical Documentation'] }
-  ],
-  serviceTools: [
+    { title: 'Technical Collaboration', icon: 'fa-solid fa-code-branch', items: ['API Analysis', 'API Documentation', 'Third-party Integrations', 'Database Understanding', 'Authentication', 'Deployment Workflows', 'Technical Documentation'] },
     { title: 'Project & Stakeholder Management tools', icon: 'fa-solid fa-screwdriver-wrench', items: ['Jira', 'Basecamp', 'Slack'] },
     { title: 'Product Discovery tools', icon: 'fa-solid fa-pen-ruler', items: ['Figma', 'Lucidchart', 'Miro'] }
   ],

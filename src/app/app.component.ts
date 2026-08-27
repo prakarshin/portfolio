@@ -87,7 +87,7 @@ export class AppComponent implements AfterViewInit, OnDestroy {
 
       gsap.utils.toArray<HTMLElement>('main .section, .contact-section').forEach((section) => {
         const headings = section.querySelectorAll('.section-heading');
-        const cards = section.querySelectorAll('.experience-card, .service-grid:not(.tools-grid) .service-card, .project-card, .ai-details > div, .competency-groups > div');
+        const cards = section.querySelectorAll('.experience-card, .service-card, .project-card, .ai-details > div, .competency-groups > div');
         const content = section.querySelectorAll('.about-copy, .career-note, .impact, .competencies, .contact-card');
         const timeline = gsap.timeline({
           scrollTrigger: { trigger: section, start: 'top 78%', toggleActions: 'play none none none' }
@@ -96,10 +96,6 @@ export class AppComponent implements AfterViewInit, OnDestroy {
         if (content.length) timeline.from(content, { y: 45, opacity: 0, duration: .65, stagger: .12, ease: 'power2.out' }, '-=.4');
         if (cards.length) timeline.from(cards, { y: 60, opacity: 0, scale: .96, rotateX: 3, duration: .7, stagger: .09, ease: 'power3.out' }, '-=.35');
       });
-
-      gsap.timeline({ scrollTrigger: { trigger: '.tools-heading', start: 'top 82%', toggleActions: 'play none none none' } })
-        .from('.tools-heading', { y: 42, opacity: 0, clipPath: 'inset(0 0 100% 0)', duration: .75, ease: 'power3.out' })
-        .from('.tools-grid .service-card', { y: 55, opacity: 0, scale: .96, rotateX: 3, duration: .7, stagger: .12, ease: 'power3.out' }, '-=.35');
 
       gsap.to('.hero-card', {
         y: -24, ease: 'none',
