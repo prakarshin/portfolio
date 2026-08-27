@@ -1,15 +1,14 @@
 import { PortfolioData } from '../models/portfolio.model';
 
 export const PORTFOLIO_DATA: PortfolioData = {
-  person: { name: 'Prakarsh Pandey', initials: 'PP', role: 'Associate Business Analyst', email: 'prakarshpandeyin@gmail.com', linkedin: 'https://www.linkedin.com/in/prakarshpandeyin', resume: 'resume/Prakarsh_Pandey_Resume.pdf' },
+  person: { name: 'Prakarsh Pandey', initials: 'P•P', role: 'Business Analyst / Project Management', email: 'prakarshpandeyin@gmail.com', linkedin: 'https://www.linkedin.com/in/prakarshpandeyin', resume: 'resume/Prakarsh_Pandey_Resume.pdf' },
   navigation: [
-    { label: 'Home', target: 'home' }, { label: 'About', target: 'about' }, { label: 'Experience', target: 'experience' },
-    { label: 'Expertise', target: 'services' }, { label: 'Projects', target: 'projects' }, { label: 'AI & Tools', target: 'ai-tools' },
-    { label: 'Contact', target: 'contact' }
+    { label: 'About', target: 'about' }, { label: 'Expertise', target: 'services' },
+    { label: 'Projects', target: 'projects' }, { label: 'Contact', target: 'contact' }
   ],
   hero: {
     positioning: 'Business Analysis · Product Discovery · Project Coordination · Client Management · Software Product Delivery',
-    subtitle: 'Product Discovery · Requirement Analysis · Project & Client Management',
+    subtitle: 'Requirement Analysis · Product Discovery · Project & Client Management',
     description: 'Associate Business Analyst with 2 years of experience turning business requirements into practical software solutions across SaaS, AI, FinTech, EdTech, E-commerce, and CRM products.'
   },
   metrics: [{ value: '2+', label: 'Years Experience' }, { value: '25+', label: 'Projects Coordinated' }, { value: '20+', label: 'International Engagements' }],
@@ -22,9 +21,9 @@ export const PORTFOLIO_DATA: PortfolioData = {
     'I am particularly interested in AI-powered products, SaaS, Product Management, and technology-driven business solutions.'
   ],
   services: [
-    { title: 'Business Analysis', icon: 'fa-solid fa-magnifying-glass-chart', items: ['Requirement Elicitation', 'Requirement Analysis', 'Functional & Non-Functional Requirements', 'Gap Analysis', 'Process Mapping', 'Requirement Prioritization', 'BRD / FRD / SRS', 'User Stories', 'Use Cases', 'Acceptance Criteria', 'UAT'] },
+    { title: 'Business Analysis', icon: 'fa-solid fa-magnifying-glass-chart', items: ['Requirement Elicitation', 'Requirement Analysis', 'Functional & Non-Functional Requirements', 'Gap Analysis', 'Process Mapping', 'Requirement Prioritization', 'BRD / FRD / SRS', 'PRD', 'User Stories', 'Use Cases', 'Acceptance Criteria', 'UAT'] },
     { title: 'Product Discovery', icon: 'fa-regular fa-compass', items: ['Product Research', 'Feature Analysis', 'Solution Definition', 'User Flows', 'Wireframing', 'Prototyping', 'Feature Prioritization'] },
-    { title: 'Project & Stakeholder Management', icon: 'fa-solid fa-people-group', items: ['Client Communication', 'Stakeholder Management', 'Project Coordination', 'Sprint Coordination', 'Task Coordination', 'Change Management', 'Delivery Coordination'] },
+    { title: 'Project & Stakeholder Management', icon: 'fa-solid fa-people-group', items: ['Client Communication', 'Stakeholder Management', 'Project Coordination', 'Sprint Coordination', 'Task Coordination', 'Delivery Coordination'] },
     { title: 'Technical Collaboration', icon: 'fa-solid fa-code-branch', items: ['API Analysis', 'API Documentation', 'Third-party Integrations', 'Database Understanding', 'Authentication', 'Deployment Workflows', 'Technical Documentation'] }
   ],
   experience: [
@@ -45,23 +44,14 @@ export const PORTFOLIO_DATA: PortfolioData = {
     ] }
   ],
   projects: [
-    { title: 'Bull CRM', type: 'Internal CRM / SaaS Product', role: 'Business Analyst', description: 'Collaborated with Senior Management on product discovery, feature research, and solution discussions for an internal CRM/SaaS product. Contributed to business-focused feature recommendations, user flows, validation, testing, and implementation coordination.', focus: ['Product Discovery', 'Feature Analysis', 'User Flows', 'Validation', 'Testing', 'Implementation Coordination'] },
-    { title: 'EDSX', type: 'FinTech Platform', role: 'Business Analyst / Project Coordination', description: 'Coordinated an ongoing multi-project engagement involving clients, technical leads, and development teams, with regular stand-ups, task assignment, and delivery coordination. Applied AI-assisted workflows for documentation, process flows, and analysis, reducing repetitive effort and helping minimize client escalations and repeated changes.', focus: ['Client Coordination', 'Requirements', 'Documentation', 'Process Analysis', 'Task Coordination', 'Delivery Coordination'] },
-    { title: 'Orifone', type: 'AI Product', role: 'Business Analyst', url: 'https://www.orifone.ai/', description: 'Handled end-to-end product discovery across requirements, feature recommendations, documentation, prototyping, testing, and solution definition. Contributed to AI/API evaluation, cost optimization, and product/marketing recommendations to support ongoing product development and market positioning.', focus: ['Product Discovery', 'AI/API Evaluation', 'Prototyping', 'Solution Definition', 'Testing', 'Feature Recommendations'] }
+    { title: 'Bull CRM', type: 'Internal CRM / SaaS Product', role: 'Business Analyst / Product Research', url: 'https://bullcrm.io/', association: 'Associated with Jamtech Technologies Pvt. Ltd.', description: 'Collaborated with Senior Management on product discovery, feature research, and solution discussions for an internal CRM/SaaS product. Contributed to business-focused feature recommendations, user flows, validation, testing, and implementation coordination.', focus: ['Product Discovery', 'Feature Analysis', 'User Flows', 'Validation', 'Testing', 'Implementation Coordination'] },
+    { title: 'edsx', type: 'FinTech Platform', role: 'Business Analyst / Project Coordination', url: 'https://www.edsx.ch/', association: 'Associated with Jamtech Technologies Pvt. Ltd.', description: 'Coordinated an ongoing multi-project engagement involving clients, technical leads, and development teams, with regular stand-ups, task assignment, and delivery coordination. Applied AI-assisted workflows for documentation, process flows, and analysis, reducing repetitive effort and helping minimize client escalations and repeated changes.', focus: ['Client Coordination', 'Requirements', 'Documentation', 'Process Analysis', 'Task Coordination', 'Delivery Coordination'] },
+    { title: 'Orifone', type: 'AI Product', role: 'Business Analyst / Feature Analysis', url: 'https://www.orifone.ai/', association: 'Associated with Jamtech Technologies Pvt. Ltd.', description: 'Handled end-to-end product discovery across requirements, feature recommendations, documentation, prototyping, testing, and solution definition. Contributed to AI/API evaluation, cost optimization, and product/marketing recommendations to support ongoing product development and market positioning.', focus: ['Product Discovery', 'AI/API Evaluation', 'Prototyping', 'Solution Definition', 'Testing', 'Feature Recommendations'] }
   ],
   ai: {
     description: 'I use Generative AI to accelerate research, documentation, analysis, prototyping, presentations, and testing while keeping business context, requirements, validation, and decision-making under human review.',
     tools: ['ChatGPT', 'Claude', 'Kimi', 'Lovable', 'Stitch', 'Gamma', 'Julius'], applications: ['Research', 'Documentation', 'Prototyping', 'Analysis', 'Presentations', 'Testing'],
     impact: 'Approximately 40% reduction in related effort across AI-assisted research, documentation, prototyping, analysis, presentations, and testing activities.'
   },
-  skills: [
-    { title: 'Business Analysis', items: ['Requirements Analysis', 'BRD', 'FRD', 'SRS', 'User Stories', 'Use Cases', 'Acceptance Criteria', 'Gap Analysis', 'Process Mapping', 'UAT'] },
-    { title: 'Product', items: ['Product Discovery', 'Feature Analysis', 'Solution Definition', 'Wireframing', 'Prototyping', 'User Flows'] },
-    { title: 'Project & Stakeholder', items: ['Project Coordination', 'Client Management', 'Stakeholder Management', 'Change Management', 'Sprint Coordination'] },
-    { title: 'Technical', items: ['APIs', 'Integrations', 'Databases', 'Authentication', 'Deployment', 'Technical Documentation'] },
-    { title: 'Agile', items: ['Agile', 'Scrum', 'SDLC', 'Requirement Validation', 'Functional Testing'] },
-    { title: 'Tools', items: ['Jira', 'Basecamp', 'Confluence', 'Slack', 'Figma', 'Miro', 'Lucidchart'] },
-    { title: 'AI', items: ['ChatGPT', 'Claude', 'Kimi', 'Lovable', 'Stitch', 'Gamma', 'Julius'] }
-  ],
-  education: { degree: 'B.Tech — Computer Science & Engineering', institution: 'Gurukula Kangri Vishwavidyalaya', duration: 'Aug 2019 – Jun 2023', cgpa: '8.6 CGPA' }
+  education: { degree: 'B.Tech — Computer Science & Engineering', institution: 'Gurukula Kangri Vishwavidyalaya', duration: '2019–2023' }
 };
